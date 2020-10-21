@@ -1,0 +1,128 @@
+// @import "reset";
+// 一些通用颜色，自行配置
+$color: #409eff;
+$active_color: #2f97ff;
+$color_red: #F5716F;
+
+/* 超出部分出省略号 */
+@mixin text-overflow {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+/* 多行文本超出部分省略号 */
+@mixin ellipsis-line ($line: 2) {
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $line;
+    -webkit-box-orient: vertical;
+}
+
+.clear {
+    clear: both;
+}
+
+.center-both {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// 二次封装弹窗使用到的样式
+.msg-alert-style,
+.msg-box-style {
+    border: none !important;
+    /deep/ .el-message-box__header {
+        padding: 0 !important;
+        height: 40px;
+        background-color: $color;
+    }
+    /deep/ .el-message-box__title {
+        color: #fff;
+        line-height: 40px;
+    }
+    /deep/ .el-message-box__content {
+        padding: 25px;
+    }
+    button {
+        padding: 12px 25px;
+        border-color: $color !important;
+        color: $color !important;
+    }
+    /deep/ .el-button--primary {
+        color: #fff !important;
+    }
+    button+button {
+        margin-left: 60px !important;
+    }
+    /deep/ .el-message-box__headerbtn {
+        top: 0px;
+        right: 0;
+        &:hover {
+            i {
+                color: #fff !important;
+            }
+        }
+        i {
+            color: #fff;
+            font-size: 20px;
+            &:hover {
+                color: #fff;
+            }
+        }
+    }
+}
+
+
+// .表格
+.table-wrap {
+    margin-top: 23px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 0 47px 10px 31px;
+    .el-table th.is-leaf {
+        // border-bottom: 2px solid $color;
+        height: 66px;
+        font-size: 18px;
+        color: #333;
+        font-weight: 600;
+    }
+    .el-table td {
+        font-size: 16px;
+        color: #666;
+        font-weight: 600;
+    }
+}
+.table-handle {
+    span {
+        color: $color;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        &:last-child {
+            margin-left: 15px;
+        }
+    }
+}
+
+/deep/ .el-dialog__title {
+    line-height: 40px;
+    color: #fff;
+}
+/deep/ .el-dialog__headerbtn {
+    top: 12px;
+    &:hover {
+        i {
+            color: #fff !important;
+        }
+    }
+    i {
+        color: #fff;
+        font-size: 20px;
+        &:hover {
+            color: #fff;
+        }
+    }
+}
